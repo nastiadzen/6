@@ -7,6 +7,14 @@ from lxml import etree
 from lxml import html
 from xml.dom.minidom import parseString
 a=requests.get('https://news.ycombinator.com/')
+t=[]
+y=input('Введіть слово, частоту якого хочете знайти ')
+u=BeautifulSoup(a.text, 'html.parser')
+for w in y:
+    f=u.get_text().lower().count(w)
+    d={'phrase': w, 'frequency': f}          
+    t.append(d)  
+    print('Частота слова', w, ':', f)
 m=html.fromstring(a.content)
 n=m.cssselect('*')
 b= [x.tag for x in n]
