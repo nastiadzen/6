@@ -7,14 +7,6 @@ from lxml import etree
 from lxml import html
 from xml.dom.minidom import parseString
 a=requests.get('https://news.ycombinator.com/')
-
-
-
-5
-
-
-
-
 m=html.fromstring(a.content)
 n=m.cssselect('*')
 b= [x.tag for x in n]
